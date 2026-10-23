@@ -44,4 +44,8 @@ npm run dev      # http://localhost:4321
 npm run deploy   # astro build && wrangler deploy(手動デプロイ)
 ```
 
+`main` ブランチに push すると、Cloudflare Workers Builds が自動でビルド・デプロイします(ビルド `npm run build`、デプロイ `npx wrangler deploy`)。ブランチごとのプレビュー版は本番と同じデータベースにつながるため、無効にしています。
+
+`src/layouts/Base.astro` の `google-site-verification` は Search Console の所有権確認用なので消さないでください。
+
 当サイトはファンによる非公式のサイトで、株式会社タミヤとは関係ありません。「ミニ四駆」は株式会社タミヤの登録商標です。
