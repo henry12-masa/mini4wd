@@ -1,0 +1,30 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "mini4wd-curation",
+	"main": "./src/worker.ts",
+	"compatibility_date": "2026-02-24",
+	"compatibility_flags": ["nodejs_compat"],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "mini4wd-curation",
+			"database_id": "14a86f65-ce62-4628-8f3d-d9a1f0f6abfa",
+		},
+	],
+	"kv_namespaces": [
+		{
+			"binding": "SESSION",
+			"id": "4fee4fc07adc458d9033e9fbc648f234",
+		},
+	],
+	"r2_buckets": [
+		{
+			"binding": "MEDIA",
+			"bucket_name": "mini4wd-curation-media",
+		},
+	],
+	"routes": [{ "pattern": "mini4wd.napoblog.com", "custom_domain": true }],
+	"triggers": {
+		"crons": ["* * * * *"],
+	},
+}
