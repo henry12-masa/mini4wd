@@ -7,9 +7,11 @@ interface Props {
 	rows: CatalogRow[];
 	/** 年をまたぐ一覧(検索結果)なら発売日に年も出す */
 	showYear?: boolean;
+	/** 見出し(パーツ名簿では「発売 / 商品名 / 品番」) */
+	heads?: [string, string, string];
 }
 
-const { rows, showYear = false } = Astro.props;
+const { rows, showYear = false, heads = ["初出", "車種名", "シャーシ"] } = Astro.props;
 ---
 
 <p class="ct-pr"><span>PR</span>「Amazon」はAmazonの検索結果へのリンク(広告)です。再販品や中古品が見つかることもあります。限定品にはリンクを付けていません。</p>
@@ -17,9 +19,9 @@ const { rows, showYear = false } = Astro.props;
 	<table class="ct">
 		<thead>
 			<tr>
-				<th scope="col" class="ct__date">初出</th>
-				<th scope="col">車種名</th>
-				<th scope="col" class="ct__pub">シャーシ</th>
+				<th scope="col" class="ct__date">{heads[0]}</th>
+				<th scope="col">{heads[1]}</th>
+				<th scope="col" class="ct__pub">{heads[2]}</th>
 				<th scope="col" class="ct__buy"><span class="sr-only">購入</span></th>
 			</tr>
 		</thead>

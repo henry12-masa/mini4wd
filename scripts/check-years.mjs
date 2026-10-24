@@ -1,15 +1,13 @@
 // マシンデータの初出年月を、全車種名簿(data/catalog/raw.json)と照合する。
 // 使い方: node scripts/check-years.mjs data/kits-*.mjs
 // 名簿の年月はタミヤ公式「発売月製品一覧」(いちばん古い月)と、ウィキペディアのフルカウル・エアロの記事による。
-import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { resolve } from "node:path";
 import { coreName as core } from "../data/kit-key.mjs";
 
-const raw = [
-	...JSON.parse(readFileSync(new URL("../data/catalog/raw.json", import.meta.url), "utf8")),
-	...JSON.parse(readFileSync(new URL("../data/catalog/additions.json", import.meta.url), "utf8")),
-];
+import { loadRoster } from "../data/catalog/roster.mjs";
+
+const raw = loadRoster();
 let bad = 0, miss = 0, ok = 0, nodate = 0;
 for (const file of process.argv.slice(2)) {
 	const list = (await import(pathToFileURL(resolve(file)).href)).default;

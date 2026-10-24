@@ -15,6 +15,7 @@
 | マシンページ | `/kits/:slug` |
 | 年表 | `/timeline` |
 | シャーシガイド | `/chassis` |
+| パーツ名簿(分類別・発売年別) | `/parts`, `/parts/:分類` |
 | 全車種名簿(シリーズ別・初出年別) | `/catalog`, `/catalog/:シリーズ`, `/catalog/:シリーズ/:年`(年不明は `/0`) |
 | 特集 | `/posts`, `/posts/:slug` |
 | 検索 | `/search` |
@@ -35,6 +36,13 @@
 - 初出年月: タミヤ公式サイト「発売月製品一覧」(ミニ四駆)。同じ品番が何度も載る場合は、いちばん古い月を初出とする。再販の月は使わない
 - 年月が確かめられない車種は「年不明」にまとめる
 - 作り方: `scripts/catalog/` の `fetch.mjs`(ウィキペディア)と月別一覧の取得 → `extract.py` → `data/catalog/raw.json` → `node scripts/build-catalog.mjs`
+- 月別一覧の生データは `data/catalog/tamiya-monthly.json`(`scripts/catalog/monthly.mjs` で取得)。`node scripts/catalog/monthly-split.mjs` で、名簿にない限定車・派生シリーズ(`extra-cars.json`)、年月の補いと表記違いの重複のまとめ(`date-fixes.json`)、パーツなど(`parts.json`)に分ける。名簿の組み立ては `data/catalog/roster.mjs`
+- 年月は、発売日が書かれた商品・限定品(94000番台〜)・PRO/REV/派生シリーズの品番だけ一覧の月を使う。旧品番は一覧の月が再販の月のことがあるので使わない
+
+## パーツ名簿
+
+- `/parts`(分類一覧)と `/parts/:分類`。グレードアップパーツ・コース・グッズなどを、タミヤ公式の月別一覧と商品ページ(`scripts/catalog/items.mjs`、`data/catalog/tamiya-items.json`)から作る
+- 分類は `monthly-split.mjs` の `CATS`(商品名のキーワードで振り分け)。`build-catalog.mjs` が `public/catalog-data/parts/` に書き出す
 
 ## 開発とデプロイ
 

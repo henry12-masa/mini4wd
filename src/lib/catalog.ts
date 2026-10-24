@@ -36,6 +36,23 @@ export function loadCatalogYear(platform: string, year: number, origin: string) 
 	return readAsset<CatalogRow[]>(`${platform}/${year}.json`, origin);
 }
 
+/** パーツなどの名簿の1行: [発売年月, 商品名, 品番, 限定品なら1, 発売日の明記があれば1] */
+export type PartRow = [string, string, string, number, number];
+
+export interface PartsIndex {
+	updated: string;
+	total: number;
+	cats: Array<{ slug: string; label: string; count: number; dl: number; from: string; to: string }>;
+}
+
+export function loadPartsIndex(origin: string) {
+	return readAsset<PartsIndex>("parts/index.json", origin);
+}
+
+export function loadPartsCat(cat: string, origin: string) {
+	return readAsset<PartRow[]>(`parts/${cat}.json`, origin);
+}
+
 /** 「2015-08」→「8月」、年だけの日付は「時期不明」 */
 export function formatCatalogDate(d: string) {
 	if (!d) return "—";

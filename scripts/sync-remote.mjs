@@ -215,3 +215,4 @@ if (result.failures.length) {
 }
 console.log(`メニュー「シャーシガイド」: ${await ensureMenuItem("シャーシガイド", "/chassis", "/timeline")}`);
 console.log(`メニュー「全車種名簿」: ${await ensureMenuItem("全車種名簿", "/catalog", "/chassis")}`);
+console.log(`メニュー「パーツ名簿」: ${await ensureMenuItem("パーツ名簿", "/parts", "/catalog")}`);

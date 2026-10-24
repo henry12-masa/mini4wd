@@ -2,18 +2,22 @@
 //   public/catalog-data/index.json           シリーズごとの件数と年ごとの件数
 //   public/catalog-data/<シリーズ>/<年>.json  その年に初出の車種 [[初出年月, 車種名, シャーシ, 限定なら1, 厳選slug], ...]
 //   年月の分からない車種は <シリーズ>/0.json にまとめる(ページでは「年不明」と表示)。
-// data/catalog/additions.json は、元の資料に載っていない車種を手で足す分。
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+//   public/catalog-data/parts/index.json     パーツなどの分類ごとの件数
+//   public/catalog-data/parts/<分類>.json     [[発売年月, 商品名, 品番, 限定なら1, 発売日の明記があれば1], ...]
+// 名簿の組み立て(追加分・年月の補い・重複のまとめ)は data/catalog/roster.mjs。
+import { mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { loadParts, loadRoster } from "../data/catalog/roster.mjs";
 import { games } from "../data/catalog.mjs";
 import { GRADES } from "../data/taxonomies.mjs";
 import { coreName } from "../data/kit-key.mjs";
 
-const read = (name) => JSON.parse(readFileSync(new URL(`../data/catalog/${name}`, import.meta.url), "utf8"));
-const raw = [...read("raw.json"), ...read("additions.json")];
+const raw = loadRoster();
 const OUT = new URL("../public/catalog-data/", import.meta.url);
 
-const ORDER = Object.keys(GRADES);
-const SHORT = Object.fromEntries(Object.entries(GRADES).map(([k, v]) => [k, v.replace(/ミニ四駆|・/g, "").trim() || v]));
+// 名簿だけに出すシリーズ(厳選マシンの絞り込みには出さない)
+const SERIES_LABELS = { ...GRADES, family: "派生シリーズ(DRX・楽しいトレインなど)" };
+const ORDER = Object.keys(SERIES_LABELS);
+const SHORT = Object.fromEntries(Object.entries(SERIES_LABELS).map(([k, v]) => [k, v.replace(/ミニ四駆|・/g, "").trim() || v]));
 
 // 厳選マシンの索引: 車種名のキー
 const curated = new Map();
@@ -42,8 +46,20 @@ for (const slug of ORDER) {
 		writeFileSync(new URL(`${slug}/${year}.json`, OUT), JSON.stringify(rows));
 		years.push([Number(year), rows.length]);
 	}
-	index.push({ slug, label: GRADES[slug], short: SHORT[slug], count: list.length, dl: list.filter((k) => k.l).length, years });
+	index.push({ slug, label: SERIES_LABELS[slug], short: SHORT[slug], count: list.length, dl: list.filter((k) => k.l).length, years });
 }
 const total = index.reduce((n, p) => n + p.count, 0);
 writeFileSync(new URL("index.json", OUT), JSON.stringify({ updated: "2026-10-24", total, grades: index }));
+// パーツなど
+const { cats, parts } = loadParts();
+mkdirSync(new URL("parts/", OUT), { recursive: true });
+const partIndex = [];
+for (const { slug, label } of cats) {
+	const list = parts.filter((p) => p.cat === slug).sort((a, b) => a.d.localeCompare(b.d) || a.item.localeCompare(b.item));
+	if (!list.length) continue;
+	writeFileSync(new URL(`parts/${slug}.json`, OUT), JSON.stringify(list.map((p) => [p.d, p.n, p.item, p.l, p.exact])));
+	partIndex.push({ slug, label, count: list.length, dl: list.filter((p) => p.l).length, from: list[0].d.slice(0, 4), to: list.at(-1).d.slice(0, 4) });
+}
+writeFileSync(new URL("parts/index.json", OUT), JSON.stringify({ updated: "2026-10-24", total: parts.length, cats: partIndex }));
+console.log(`パーツなど: ${parts.length}点 / ${partIndex.length}分類`);
 console.log(`全車種名簿: ${total}車種 / ${index.length}シリーズ(厳選マシンへのリンク ${linked}件 / 厳選${games.length}台)`);

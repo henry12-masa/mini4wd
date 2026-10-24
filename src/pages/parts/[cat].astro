@@ -1,0 +1,136 @@
+---
+import Base from "../../layouts/Base.astro";
+import CatalogTable from "../../components/CatalogTable.astro";
+import type { CatalogRow } from "../../lib/catalog";
+import { loadPartsCat, loadPartsIndex, normalizeForSearch } from "../../lib/catalog";
+
+const { cat } = Astro.params;
+const index = await loadPartsIndex(Astro.url.origin);
+const info = index?.cats.find((c) => c.slug === cat);
+if (!info) return Astro.rewrite("/404");
+const rows = (await loadPartsCat(info.slug, Astro.url.origin)) ?? [];
+Astro.response.headers.set("Cache-Control", "public, max-age=3600");
+
+const fmt = new Intl.NumberFormat("ja-JP");
+const q = (Astro.url.searchParams.get("q") ?? "").trim().slice(0, 60);
+const needle = normalizeForSearch(q);
+const hits = q ? rows.filter(([, name, item]) => normalizeForSearch(`${name}${item}`).includes(needle)) : rows;
+
+// 年ごとにまとめる(年不明は最後)
+const byYear = new Map<string, CatalogRow[]>();
+for (const [d, name, item, limited] of hits) {
+	const y = d ? d.slice(0, 4) : "0";
+	if (!byYear.has(y)) byYear.set(y, []);
+	byYear.get(y)!.push([d, name, `ITEM ${item}`, limited]);
+}
+const years = [...byYear].sort(([a], [b]) => (a === "0" ? 1 : b === "0" ? -1 : b.localeCompare(a)));
+---
+
+<Base title={`${info.label}の一覧`} description={`ミニ四駆の${info.label}${fmt.format(info.count)}点を、発売の新しい順にまとめた一覧。限定パーツも含みます。`}>
+	<header class="band intro">
+		<div class="frame">
+			<p class="eyebrow"><a href="/parts">パーツ名簿</a> / {info.label}</p>
+			<h1 class="intro__title">{info.label}の一覧</h1>
+			<p class="intro__lead">
+				{fmt.format(info.count)}点(うち限定品{fmt.format(info.dl)}点)を、発売の新しい順に並べています。
+			</p>
+			<form class="search" action={`/parts/${info.slug}`} method="get" role="search">
+				<label for="parts-q" class="sr-only">{info.label}を検索</label>
+				<input id="parts-q" name="q" type="search" value={q} placeholder="商品名・品番で探す" />
+				<button type="submit" class="btn btn--sm">検索</button>
+			</form>
+			<nav class="cats" aria-label="ほかの分類">
+				{index!.cats.map((c) => (
+					<a href={`/parts/${c.slug}`} aria-current={c.slug === info.slug ? "page" : undefined}>{c.label}</a>
+				))}
+			</nav>
+		</div>
+	</header>
+
+	<section class="band section">
+		<div class="frame">
+			{q && (
+				<p class="note">
+					「{q}」の検索結果 {fmt.format(hits.length)}点 · <a href={`/parts/${info.slug}`}>すべて表示</a>
+				</p>
+			)}
+			{hits.length === 0 && <p class="note">見つかりませんでした。表記を変えて試してください。</p>}
+			{years.map(([y, list]) => (
+				<section class="year" aria-labelledby={`y${y}`}>
+					<h2 id={`y${y}`} class="sub">{y === "0" ? "年不明" : `${y}年`}<small>{list.length}点</small></h2>
+					<CatalogTable rows={list} heads={["発売", "商品名", "品番"]} />
+				</section>
+			))}
+		</div>
+	</section>
+</Base>
+
+<style>
+	.eyebrow a {
+		color: inherit;
+	}
+
+	.search {
+		display: flex;
+		gap: var(--spacing-2);
+		max-width: 480px;
+		margin-top: var(--spacing-5);
+	}
+
+	.search input {
+		flex: 1;
+		min-width: 0;
+		padding: var(--spacing-2) var(--spacing-4);
+		border: 0;
+		border-radius: var(--radius-full);
+		background: var(--color-surface);
+		box-shadow: inset 0 0 0 1px var(--color-border-strong);
+		font: inherit;
+		color: var(--color-text);
+	}
+
+	.cats {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-2);
+		margin-top: var(--spacing-5);
+	}
+
+	.cats a {
+		padding: var(--spacing-1) var(--spacing-3);
+		border-radius: var(--radius-full);
+		background: var(--color-surface);
+		box-shadow: inset 0 0 0 1px var(--color-border);
+		font-size: var(--font-size-xs);
+		color: var(--color-text-secondary);
+		text-decoration: none;
+	}
+
+	.cats a[aria-current="page"] {
+		background: var(--color-text);
+		color: var(--color-bg);
+		box-shadow: none;
+	}
+
+	.year + .year {
+		margin-top: var(--spacing-10);
+	}
+
+	.sub {
+		margin-bottom: var(--spacing-3);
+		font-size: var(--font-size-xl);
+	}
+
+	.sub small {
+		margin-left: var(--spacing-2);
+		font-size: var(--font-size-sm);
+		font-weight: 400;
+		color: var(--color-muted);
+	}
+
+	.note {
+		margin-bottom: var(--spacing-4);
+		font-size: var(--font-size-sm);
+		color: var(--color-muted);
+	}
+</style>

@@ -1,0 +1,110 @@
+---
+import Base from "../../layouts/Base.astro";
+import { loadPartsIndex } from "../../lib/catalog";
+
+const index = await loadPartsIndex(Astro.url.origin);
+if (!index) return new Response("名簿データを読み込めませんでした", { status: 500 });
+Astro.response.headers.set("Cache-Control", "public, max-age=3600");
+
+const fmt = new Intl.NumberFormat("ja-JP");
+---
+
+<Base title="パーツ名簿" description={`モーター、ローラー、タイヤ、ステーから限定パーツまで、ミニ四駆のグレードアップパーツなど${fmt.format(index.total)}点を分類ごとにまとめた名簿。`}>
+	<header class="band intro">
+		<div class="frame">
+			<p class="eyebrow">Parts</p>
+			<h1 class="intro__title">パーツ名簿</h1>
+			<p class="intro__lead">
+				モーター、ローラー、タイヤ、ステー、マスダンパー。ミニ四駆のグレードアップパーツや関連商品<strong>{fmt.format(index.total)}点</strong>を、分類と発売時期ごとに並べました。ジャパンカップやミニ四駆ステーションの限定パーツも含みます。マシンは<a href="/catalog">全車種名簿</a>へ。
+			</p>
+		</div>
+	</header>
+
+	<section class="band section" aria-label="分類一覧">
+		<div class="frame">
+			<ul class="pf-grid">
+				{
+					index.cats.map((c) => (
+						<li>
+							<a href={`/parts/${c.slug}`} class="pf">
+								<span class="pf__name">{c.label}</span>
+								<span class="pf__meta">{c.from === c.to ? c.from : `${c.from}〜${c.to}`}年</span>
+								<span class="pf__count">
+									{fmt.format(c.count)}
+									<small>点</small>
+								</span>
+								{c.dl > 0 && <span class="pf__dl">うち限定品 {fmt.format(c.dl)}点</span>}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+			<p class="source">
+				出典:タミヤ公式サイト「発売月製品一覧」(ミニ四駆)と各商品ページ。{index.updated}時点で発売済みの商品を整理しました。年月は一覧に最初に載った月で、商品に発売日が書かれているものはその日付です。2000年代前半までの商品は、一覧の月が再販の時期にあたる場合があります。今もタミヤのカタログにあるが一覧に載っていない商品は「年不明」にしています。品番はタミヤの商品番号です。
+			</p>
+		</div>
+	</section>
+</Base>
+
+<style>
+	.intro__lead a {
+		color: inherit;
+	}
+
+	.pf-grid {
+		list-style: none;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+		gap: var(--spacing-3);
+	}
+
+	.pf {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-1);
+		height: 100%;
+		padding: var(--spacing-4) var(--spacing-5);
+		background: var(--color-surface);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-card);
+		color: var(--color-text);
+		text-decoration: none;
+		transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+	}
+
+	.pf:hover {
+		transform: translateY(-2px);
+	}
+
+	.pf__name {
+		font-size: var(--font-size-lg);
+		font-weight: 600;
+	}
+
+	.pf__meta,
+	.pf__dl {
+		font-size: var(--font-size-xs);
+		color: var(--color-muted);
+	}
+
+	.pf__count {
+		margin-top: var(--spacing-2);
+		font-family: var(--font-mono);
+		font-size: var(--font-size-2xl);
+		font-weight: 500;
+	}
+
+	.pf__count small {
+		margin-left: 0.15em;
+		font-family: var(--font-body);
+		font-size: var(--font-size-sm);
+		color: var(--color-muted);
+	}
+
+	.source {
+		margin-top: var(--spacing-8);
+		font-size: var(--font-size-xs);
+		line-height: 1.8;
+		color: var(--color-muted);
+	}
+</style>

@@ -128,6 +128,7 @@ const seed = {
 				{ type: "custom", label: "年表", url: "/timeline" },
 				{ type: "custom", label: "シャーシガイド", url: "/chassis" },
 				{ type: "custom", label: "全車種名簿", url: "/catalog" },
+				{ type: "custom", label: "パーツ名簿", url: "/parts" },
 				{ type: "custom", label: "特集", url: "/posts" },
 				{ type: "custom", label: "このサイトについて", url: "/pages/about" },
 			],
