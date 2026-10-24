@@ -7,8 +7,9 @@ import wave2Classic from "./kits-wave2-classic.mjs";
 import wave2Letsgo from "./kits-wave2-letsgo.mjs";
 import wave2Modern from "./kits-wave2-modern.mjs";
 import wave3 from "./kits-wave3.mjs";
+import updates from "./kits-updates.mjs";
 
-export const games = [...classic, ...letsgo, ...modern, ...wave2Classic, ...wave2Letsgo, ...wave2Modern, ...wave3].sort(
+export const games = [...classic, ...letsgo, ...modern, ...wave2Classic, ...wave2Letsgo, ...wave2Modern, ...wave3, ...updates].sort(
 	(a, b) => a.released.localeCompare(b.released) || a.title.localeCompare(b.title, "ja"),
 );
 

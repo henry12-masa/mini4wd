@@ -4,10 +4,16 @@ const UA = { "User-Agent": "Mozilla/5.0 (personal fan site research; 1 req/s)" }
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const dec = new TextDecoder("shift_jis");
 const text = (s) => s.replace(/<(script|style)[\s\S]*?<\/\1>/g, "").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ");
-const out = existsSync("monthly.json") ? JSON.parse(readFileSync("monthly.json", "utf8")) : {};
-for (let y = 1982; y <= 2026; y++) for (let m = 1; m <= 12; m++) {
+// 定期更新用: --file data/catalog/tamiya-monthly.json --refresh 202610,202611 で、指定した月だけ取り直す
+const args = process.argv.slice(2);
+const arg = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
+const FILE = arg("--file") ?? "monthly.json";
+const out = existsSync(FILE) ? JSON.parse(readFileSync(FILE, "utf8")) : {};
+for (const key of arg("--refresh")?.split(",") ?? []) delete out[key];
+const LAST = `${new Date().getFullYear() + 1}12`;
+for (let y = 1982; y <= Number(LAST.slice(0, 4)); y++) for (let m = 1; m <= 12; m++) {
   const key = `${y}${String(m).padStart(2, "0")}`;
-  if (key < "198207" || key > "202612" || out[key]) continue;
+  if (key < "198207" || key > LAST || out[key]) continue;
   let all = [];
   for (let page = 1; page <= 5; page++) {
     let s = "";
@@ -21,6 +27,6 @@ for (let y = 1982; y <= 2026; y++) for (let m = 1; m <= 12; m++) {
   }
   out[key] = all;
   if (all.length) console.error(key, all.length);
-  writeFileSync("monthly.json", JSON.stringify(out));
+  writeFileSync(FILE, JSON.stringify(out));
 }
 console.log("months", Object.keys(out).length, "items", Object.values(out).reduce((n, a) => n + a.length, 0));

@@ -44,6 +44,10 @@
 - `/parts`(分類一覧)と `/parts/:分類`。グレードアップパーツ・コース・グッズなどを、タミヤ公式の月別一覧と商品ページ(`scripts/catalog/items.mjs`、`data/catalog/tamiya-items.json`)から作る
 - 分類は `monthly-split.mjs` の `CATS`(商品名のキーワードで振り分け)。`build-catalog.mjs` が `public/catalog-data/parts/` に書き出す
 
+## 定期更新
+
+週2回(火・金)、`curation-sites-update` スキルで最新情報を反映する。新しい厳選は `data/kits-updates.mjs` に足し、名簿の追加は `data/catalog/` に入れる。本番DBへは `node scripts/sync-remote.mjs --url <サイト> --only <slug,...>` で変えたものだけを同期する(`--only` のときは特集・固定ページは書き直さない)。コミットの先頭は `[curation-update]`。
+
 ## 開発とデプロイ
 
 ```bash
