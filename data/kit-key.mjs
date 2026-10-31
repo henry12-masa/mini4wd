@@ -17,5 +17,5 @@ export const CHASSIS_OF_RAW = {
 	"タイプ1": "type1", "タイプ2": "type2", "タイプ3": "type3", "タイプ4": "type4", "タイプ5": "type5", "ゼロ": "zero",
 	"スーパー1": "super1", "スーパーII": "super2", "スーパー2": "super2", "FM": "fm", "スーパーFM": "superfm", "FM-A": "fma",
 	"スーパーTZ": "supertz", "スーパーTZ-X": "supertzx", "スーパーX": "superx", "スーパーXX": "superxx",
-	"VS": "vs", "VZ": "vz", "MS": "ms", "MA": "ma", "AR": "ar",
+	"VS": "vs", "VZ": "vz", "MS": "ms", "MA": "ma", "ME": "me", "AR": "ar",
 };

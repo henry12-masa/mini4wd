@@ -56,6 +56,7 @@ export const SERIES = {
 	ms: "MS",
 	ma: "MA",
 	ar: "AR",
+	me: "ME",
 	other: "その他",
 };
 

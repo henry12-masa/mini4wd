@@ -357,6 +357,10 @@
 					"label": "AR"
 				},
 				{
+					"slug": "me",
+					"label": "ME"
+				},
+				{
 					"slug": "other",
 					"label": "その他"
 				}
