@@ -5313,6 +5313,147 @@
 				}
 			},
 			{
+				"id": "kit-dash4-cannonball",
+				"slug": "dash4-cannonball",
+				"status": "published",
+				"data": {
+					"title": "ダッシュ4号 弾丸キャノンボール",
+					"model_number": "18022",
+					"release_year": 1989,
+					"released": "1989-11",
+					"scale": "1/32",
+					"tier": "recommended",
+					"summary": "『ダッシュ!四駆郎』でパンクローが走らせた、ダッシュ軍団の4号車。",
+					"curator_note": "連載初出時は「四号車」と呼ばれていた。",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "dash4-cannonball-b0",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "dash4-cannonball-s7k",
+									"text": "どんなマシン",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "dash4-cannonball-b1",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "dash4-cannonball-s7l",
+									"text": "漫画『ダッシュ!四駆郎』に登場するダッシュ軍団の4号車。パンクローこと地味頁二のマシンだ。",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "dash4-cannonball-b2",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "dash4-cannonball-s7m",
+									"text": "走らせどころ",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "dash4-cannonball-b3",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "dash4-cannonball-s7n",
+									"text": "タイプ3シャーシを使う。連載の初出時は「四号車」という名前で、キャノンボールと名前が決まるまでしばらく間があった。形も後のキャノンボールとは違っていた。",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "dash4-cannonball-b4",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "dash4-cannonball-s7o",
+									"text": "ミニ四駆史の中で",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "dash4-cannonball-b5",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "dash4-cannonball-s7p",
+									"text": "続編にあたる『ハイパーダッシュ!四駆郎』では、後継のキャノンDボールが登場し、2017年にミニ四駆PROで発売された。",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "dash4-cannonball-b6",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "dash4-cannonball-s7q",
+									"text": "こんな人におすすめ",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "dash4-cannonball-b7",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "dash4-cannonball-s7r",
+									"text": "ダッシュ軍団のマシンをそろえたい人に。",
+									"marks": []
+								}
+							]
+						}
+					],
+					"amazon_query": ""
+				},
+				"taxonomies": {
+					"era": [
+						"boom1"
+					],
+					"grade": [
+						"racer"
+					],
+					"series": [
+						"type3"
+					]
+				}
+			},
+			{
 				"id": "kit-wild-saurus",
 				"slug": "wild-saurus",
 				"status": "published",
@@ -5334,7 +5475,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "wild-saurus-s7k",
+									"_key": "wild-saurus-s7s",
 									"text": "どんなマシン",
 									"marks": []
 								}
@@ -5348,7 +5489,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "wild-saurus-s7l",
+									"_key": "wild-saurus-s7t",
 									"text": "漫画『ダッシュ!四駆郎』に登場するワイルドミニ四駆。源太が持ち込んだスケッチをもとに、皇快男児が作ったという設定のマシンだ。",
 									"marks": []
 								}
@@ -5362,7 +5503,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "wild-saurus-s7m",
+									"_key": "wild-saurus-s7u",
 									"text": "走らせどころ",
 									"marks": []
 								}
@@ -5376,7 +5517,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "wild-saurus-s7n",
+									"_key": "wild-saurus-s7v",
 									"text": "作中では車体の右側に交換式のアタッチメントを備え、レーサーミニ四駆が通れない沼地も走った。市販のキットには単三電池2本を載せられるパーツが付いている。",
 									"marks": []
 								}
@@ -5390,7 +5531,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "wild-saurus-s7o",
+									"_key": "wild-saurus-s7w",
 									"text": "ミニ四駆史の中で",
 									"marks": []
 								}
@@ -5404,7 +5545,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "wild-saurus-s7p",
+									"_key": "wild-saurus-s7x",
 									"text": "物語の後半では、タンクローのネオバーニングサンと交換され、タンクローのマシンになった。",
 									"marks": []
 								}
@@ -5418,7 +5559,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "wild-saurus-s7q",
+									"_key": "wild-saurus-s7y",
 									"text": "こんな人におすすめ",
 									"marks": []
 								}
@@ -5432,7 +5573,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "wild-saurus-s7r",
+									"_key": "wild-saurus-s7z",
 									"text": "ダッシュ四駆郎が好きな人、ワイルドミニ四駆を集めたい人に。",
 									"marks": []
 								}
@@ -5450,147 +5591,6 @@
 					],
 					"series": [
 						"other"
-					]
-				}
-			},
-			{
-				"id": "kit-dash4-cannonball",
-				"slug": "dash4-cannonball",
-				"status": "published",
-				"data": {
-					"title": "ダッシュ4号 弾丸キャノンボール",
-					"model_number": "18022",
-					"release_year": 1990,
-					"released": "1990-01",
-					"scale": "1/32",
-					"tier": "recommended",
-					"summary": "『ダッシュ!四駆郎』でパンクローが走らせた、ダッシュ軍団の4号車。",
-					"curator_note": "連載初出時は「四号車」と呼ばれていた。",
-					"content": [
-						{
-							"_type": "block",
-							"_key": "dash4-cannonball-b0",
-							"style": "h3",
-							"markDefs": [],
-							"children": [
-								{
-									"_type": "span",
-									"_key": "dash4-cannonball-s7s",
-									"text": "どんなマシン",
-									"marks": []
-								}
-							]
-						},
-						{
-							"_type": "block",
-							"_key": "dash4-cannonball-b1",
-							"style": "normal",
-							"markDefs": [],
-							"children": [
-								{
-									"_type": "span",
-									"_key": "dash4-cannonball-s7t",
-									"text": "漫画『ダッシュ!四駆郎』に登場するダッシュ軍団の4号車。パンクローこと地味頁二のマシンだ。",
-									"marks": []
-								}
-							]
-						},
-						{
-							"_type": "block",
-							"_key": "dash4-cannonball-b2",
-							"style": "h3",
-							"markDefs": [],
-							"children": [
-								{
-									"_type": "span",
-									"_key": "dash4-cannonball-s7u",
-									"text": "走らせどころ",
-									"marks": []
-								}
-							]
-						},
-						{
-							"_type": "block",
-							"_key": "dash4-cannonball-b3",
-							"style": "normal",
-							"markDefs": [],
-							"children": [
-								{
-									"_type": "span",
-									"_key": "dash4-cannonball-s7v",
-									"text": "タイプ3シャーシを使う。連載の初出時は「四号車」という名前で、キャノンボールと名前が決まるまでしばらく間があった。形も後のキャノンボールとは違っていた。",
-									"marks": []
-								}
-							]
-						},
-						{
-							"_type": "block",
-							"_key": "dash4-cannonball-b4",
-							"style": "h3",
-							"markDefs": [],
-							"children": [
-								{
-									"_type": "span",
-									"_key": "dash4-cannonball-s7w",
-									"text": "ミニ四駆史の中で",
-									"marks": []
-								}
-							]
-						},
-						{
-							"_type": "block",
-							"_key": "dash4-cannonball-b5",
-							"style": "normal",
-							"markDefs": [],
-							"children": [
-								{
-									"_type": "span",
-									"_key": "dash4-cannonball-s7x",
-									"text": "続編にあたる『ハイパーダッシュ!四駆郎』では、後継のキャノンDボールが登場し、2017年にミニ四駆PROで発売された。",
-									"marks": []
-								}
-							]
-						},
-						{
-							"_type": "block",
-							"_key": "dash4-cannonball-b6",
-							"style": "h3",
-							"markDefs": [],
-							"children": [
-								{
-									"_type": "span",
-									"_key": "dash4-cannonball-s7y",
-									"text": "こんな人におすすめ",
-									"marks": []
-								}
-							]
-						},
-						{
-							"_type": "block",
-							"_key": "dash4-cannonball-b7",
-							"style": "normal",
-							"markDefs": [],
-							"children": [
-								{
-									"_type": "span",
-									"_key": "dash4-cannonball-s7z",
-									"text": "ダッシュ軍団のマシンをそろえたい人に。",
-									"marks": []
-								}
-							]
-						}
-					],
-					"amazon_query": ""
-				},
-				"taxonomies": {
-					"era": [
-						"boom1"
-					],
-					"grade": [
-						"racer"
-					],
-					"series": [
-						"type3"
 					]
 				}
 			},
@@ -15613,7 +15613,7 @@
 					"title": "レイザーギル",
 					"model_number": "19203",
 					"release_year": 1998,
-					"released": "1998-11",
+					"released": "1998-12",
 					"scale": "1/32",
 					"tier": "deep",
 					"summary": "1998年に発売された、マイティミニ四駆のマシン。",
@@ -16600,7 +16600,7 @@
 					"title": "ライトニングマグナム",
 					"model_number": "19612",
 					"release_year": 1999,
-					"released": "1999-08",
+					"released": "1999-09",
 					"scale": "1/32",
 					"tier": "recommended",
 					"summary": "漫画版『MAX』で星馬豪が走らせたマグナム。",

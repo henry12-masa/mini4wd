@@ -38,6 +38,7 @@
 - 作り方: `scripts/catalog/` の `fetch.mjs`(ウィキペディア)と月別一覧の取得 → `extract.py` → `data/catalog/raw.json` → `node scripts/build-catalog.mjs`
 - 月別一覧の生データは `data/catalog/tamiya-monthly.json`(`scripts/catalog/monthly.mjs` で取得)。`node scripts/catalog/monthly-split.mjs` で、名簿にない限定車・派生シリーズ(`extra-cars.json`)、年月の補いと表記違いの重複のまとめ(`date-fixes.json`)、パーツなど(`parts.json`)に分ける。名簿の組み立ては `data/catalog/roster.mjs`
 - 年月は、発売日が書かれた商品・限定品(94000番台〜)・PRO/REV/派生シリーズの品番だけ一覧の月を使う。旧品番は一覧の月が再販の月のことがあるので使わない
+- ウィキペディアや年表から取った年月が月別一覧と違うもの、名前の違いで年月が埋まらなかったものは、`data/catalog/official-fixes.json`(`override: true`、`from` に元の年月)で公式の月に上書きする。シャーシ名の読み違いも `c` で直せる
 
 ## パーツ名簿
 
