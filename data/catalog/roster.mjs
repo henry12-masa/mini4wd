@@ -5,7 +5,7 @@
 //   date-fixes.json  年月の空いた行を月別一覧で埋める分と、表記違いの重複をまとめる分(同上)
 //   official-fixes.json  元の資料の年月・シャーシが公式の月別一覧と違うものを、公式に合わせて上書きする分(override)
 //   web-dates.json   月別一覧に載らない限定車・完成車などの年月を、ほかの資料で埋める分(年月の空いた行だけ)。
-//                    src が出典: fandom は英語版ファンWiki「Mini 4WD Wiki」の記事名、news は報道記事。
+//                    src が出典: fandom は英語版ファンWiki「Mini 4WD Wiki」の記事名、news は報道記事、shop は販売店の商品ページ、atwiki は日本語のファンWiki。
 //                    remove は、公式名の行(品番)と同じ車種が表記違いで重複している行で、名簿から外す
 import { readFileSync } from "node:fs";
 
