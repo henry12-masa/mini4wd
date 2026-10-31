@@ -39,6 +39,7 @@
 - 月別一覧の生データは `data/catalog/tamiya-monthly.json`(`scripts/catalog/monthly.mjs` で取得)。`node scripts/catalog/monthly-split.mjs` で、名簿にない限定車・派生シリーズ(`extra-cars.json`)、年月の補いと表記違いの重複のまとめ(`date-fixes.json`)、パーツなど(`parts.json`)に分ける。名簿の組み立ては `data/catalog/roster.mjs`
 - 年月は、発売日が書かれた商品・限定品(94000番台〜)・PRO/REV/派生シリーズの品番だけ一覧の月を使う。旧品番は一覧の月が再販の月のことがあるので使わない
 - ウィキペディアや年表から取った年月が月別一覧と違うもの、名前の違いで年月が埋まらなかったものは、`data/catalog/official-fixes.json`(`override: true`、`from` に元の年月)で公式の月に上書きする。シャーシ名の読み違いも `c` で直せる
+- 月別一覧に載らない限定車・完成車・コラボ車の年月は `data/catalog/web-dates.json` で埋める(年月の空いた行だけ。`src` に出典: `fandom:<英語版 Mini 4WD Wiki の記事名>`、`news:<記事URL>`)。`remove` は公式名の行と表記違いで重複している行で、名簿から外す
 
 ## パーツ名簿
 
