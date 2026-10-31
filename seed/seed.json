@@ -35632,6 +35632,147 @@
 				}
 			},
 			{
+				"id": "kit-raizzan",
+				"slug": "raizzan",
+				"status": "published",
+				"data": {
+					"title": "ライザン",
+					"model_number": "18663",
+					"release_year": 2026,
+					"released": "2026-01",
+					"scale": "1/32",
+					"tier": "recommended",
+					"summary": "MEシャーシが初めて使われた、ミニ四駆PROのマシン。",
+					"curator_note": "猛禽類をイメージした、MEシャーシの1台目。",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "raizzan-b0",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "raizzan-s1jc",
+									"text": "どんなマシン",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "raizzan-b1",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "raizzan-s1jd",
+									"text": "2026年1月に発売された、ミニ四駆PROシリーズのNo.63。デザインは、ライキリやエレグリッターを手がけた根津孝太氏。低く鋭いボディはハヤブサやワシなどの猛禽類がモチーフで、スモークカラーのセンターパーツにレッドのボディパネルを取り付ける構成になっている。",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "raizzan-b2",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "raizzan-s1je",
+									"text": "走らせどころ",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "raizzan-b3",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "raizzan-s1jf",
+									"text": "左右のフェンダーや後部のボディパネルは取り外せて、オープントップの姿にも組める。13mmのプラローラーを6個標準で備え、前後のバンパーは別パーツなので、別売のプレートも付けやすい。タイヤは小径ローハイトタイヤで、ギヤ比は3.5:1。接着剤を使わず、はめ込みとビス止めで組み立てられる。",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "raizzan-b4",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "raizzan-s1jg",
+									"text": "ミニ四駆史の中で",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "raizzan-b5",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "raizzan-s1jh",
+									"text": "MEシャーシは、MS・MAに続く3つ目のダブルシャフトモーターのシャーシで、MEは「Midship Evolution」の略。MAシャーシの組み立てやすさを残しながら約8g軽くなった。タミヤの公認競技会では、2026年1月のミニ四駆グランプリ ニューイヤー仙台大会から使えるようになった。",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "raizzan-b6",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "raizzan-s1ji",
+									"text": "こんな人におすすめ",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "raizzan-b7",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "raizzan-s1jj",
+									"text": "いちばん新しいダブルシャフトモーターのシャーシを試したい人や、実車のように組み立てる過程も楽しみたい人に。",
+									"marks": []
+								}
+							]
+						}
+					],
+					"amazon_query": ""
+				},
+				"taxonomies": {
+					"era": [
+						"now"
+					],
+					"grade": [
+						"pro"
+					],
+					"series": [
+						"me"
+					]
+				}
+			},
+			{
 				"id": "kit-tyxiv",
 				"slug": "tyxiv",
 				"status": "published",
@@ -35653,7 +35794,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "tyxiv-s1jc",
+									"_key": "tyxiv-s1jk",
 									"text": "どんなマシン",
 									"marks": []
 								}
@@ -35667,7 +35808,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "tyxiv-s1jd",
+									"_key": "tyxiv-s1jl",
 									"text": "2026年10月に発売された、ミニ四駆PROシリーズのNo.64。デザインは、DCRやクロススピアーのシリーズを手がけたハイパーデザイナーのやまざきたかゆき氏。蛍光グリーンのコンパクトなボディで、軽さと低い重心をねらっている。",
 									"marks": []
 								}
@@ -35681,7 +35822,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "tyxiv-s1je",
+									"_key": "tyxiv-s1jm",
 									"text": "走らせどころ",
 									"marks": []
 								}
@@ -35695,7 +35836,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "tyxiv-s1jf",
+									"_key": "tyxiv-s1jn",
 									"text": "前後のフェンダーは小径タイヤ用と大径タイヤ用の2種類が入り、コクピットもドライバー人形つきのオープントップとキャノピーのタイプから選べる。標準はスーパーハードの小径ローハイトタイヤで、大径タイヤは別売。ギヤ比は3.5:1で、接着剤を使わずはめ込みとビス止めで組み立てられる。",
 									"marks": []
 								}
@@ -35709,7 +35850,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "tyxiv-s1jg",
+									"_key": "tyxiv-s1jo",
 									"text": "ミニ四駆史の中で",
 									"marks": []
 								}
@@ -35723,7 +35864,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "tyxiv-s1jh",
+									"_key": "tyxiv-s1jp",
 									"text": "MEシャーシは、MS・MAに続く3つ目のダブルシャフトモーターのシャーシで、MEは「Midship Evolution」の略。MAシャーシの組み立てやすさを残しながら軽くし、前後のバンパーはビスで留める分割式になった。2026年1月のライザンに続いて、このシャーシを使うマシンだ。",
 									"marks": []
 								}
@@ -35737,7 +35878,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "tyxiv-s1ji",
+									"_key": "tyxiv-s1jq",
 									"text": "こんな人におすすめ",
 									"marks": []
 								}
@@ -35751,7 +35892,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"_key": "tyxiv-s1jj",
+									"_key": "tyxiv-s1jr",
 									"text": "新しいMEシャーシを試したい人や、フェンダーやコクピットを付け替えて見た目を変えたい人に。",
 									"marks": []
 								}
