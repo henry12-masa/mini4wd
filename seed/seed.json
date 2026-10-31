@@ -35630,6 +35630,147 @@
 						"fma"
 					]
 				}
+			},
+			{
+				"id": "kit-tyxiv",
+				"slug": "tyxiv",
+				"status": "published",
+				"data": {
+					"title": "ティクシヴ",
+					"model_number": "18664",
+					"release_year": 2026,
+					"released": "2026-10",
+					"scale": "1/32",
+					"tier": "recommended",
+					"summary": "MEシャーシを採用したミニ四駆PROのマシン。",
+					"curator_note": "フェンダーとコクピットを選べる、MEシャーシの新顔。",
+					"content": [
+						{
+							"_type": "block",
+							"_key": "tyxiv-b0",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "tyxiv-s1jc",
+									"text": "どんなマシン",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "tyxiv-b1",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "tyxiv-s1jd",
+									"text": "2026年10月に発売された、ミニ四駆PROシリーズのNo.64。デザインは、DCRやクロススピアーのシリーズを手がけたハイパーデザイナーのやまざきたかゆき氏。蛍光グリーンのコンパクトなボディで、軽さと低い重心をねらっている。",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "tyxiv-b2",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "tyxiv-s1je",
+									"text": "走らせどころ",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "tyxiv-b3",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "tyxiv-s1jf",
+									"text": "前後のフェンダーは小径タイヤ用と大径タイヤ用の2種類が入り、コクピットもドライバー人形つきのオープントップとキャノピーのタイプから選べる。標準はスーパーハードの小径ローハイトタイヤで、大径タイヤは別売。ギヤ比は3.5:1で、接着剤を使わずはめ込みとビス止めで組み立てられる。",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "tyxiv-b4",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "tyxiv-s1jg",
+									"text": "ミニ四駆史の中で",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "tyxiv-b5",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "tyxiv-s1jh",
+									"text": "MEシャーシは、MS・MAに続く3つ目のダブルシャフトモーターのシャーシで、MEは「Midship Evolution」の略。MAシャーシの組み立てやすさを残しながら軽くし、前後のバンパーはビスで留める分割式になった。2026年1月のライザンに続いて、このシャーシを使うマシンだ。",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "tyxiv-b6",
+							"style": "h3",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "tyxiv-s1ji",
+									"text": "こんな人におすすめ",
+									"marks": []
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"_key": "tyxiv-b7",
+							"style": "normal",
+							"markDefs": [],
+							"children": [
+								{
+									"_type": "span",
+									"_key": "tyxiv-s1jj",
+									"text": "新しいMEシャーシを試したい人や、フェンダーやコクピットを付け替えて見た目を変えたい人に。",
+									"marks": []
+								}
+							]
+						}
+					],
+					"amazon_query": ""
+				},
+				"taxonomies": {
+					"era": [
+						"now"
+					],
+					"grade": [
+						"pro"
+					],
+					"series": [
+						"me"
+					]
+				}
 			}
 		],
 		"posts": [
